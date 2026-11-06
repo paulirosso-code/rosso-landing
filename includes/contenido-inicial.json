@@ -1,0 +1,359 @@
+[
+ {
+  "clave": "auto",
+  "grupo": "personas",
+  "orden": 1,
+  "estado": "publish",
+  "icono": "🚗",
+  "nombre": "Automotor",
+  "descripcion": "Protege tu auto y a las personas y bienes de terceros. Hay distintos niveles de cobertura:",
+  "lista": [
+   "Responsabilidad civil: daños que causes a terceros (obligatoria por ley).",
+   "Terceros completo: suma robo, incendio y destrucción total, entre otras coberturas.",
+   "Todo riesgo: además cubre daños propios, con o sin franquicia.",
+   "Asistencia mecánica y al vehículo, según la compañía."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "moto",
+  "grupo": "personas",
+  "orden": 2,
+  "estado": "publish",
+  "icono": "🏍️",
+  "nombre": "Motos",
+  "descripcion": "Cobertura para tu moto según el uso y su valor:",
+  "lista": [
+   "Responsabilidad civil frente a terceros (obligatoria).",
+   "Robo o hurto e incendio total.",
+   "Daños propios en los planes más completos."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "mov",
+  "grupo": "personas",
+  "orden": 3,
+  "estado": "publish",
+  "icono": "🚲",
+  "nombre": "Movilidad",
+  "descripcion": "Seguros para bicicletas, monopatines y otros vehículos de movilidad personal:",
+  "lista": [
+   "Robo o hurto del vehículo.",
+   "Daños al vehículo, según el plan.",
+   "Responsabilidad civil y accidentes personales del conductor, según la compañía."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "hogar",
+  "grupo": "personas",
+  "orden": 4,
+  "estado": "publish",
+  "icono": "🏠",
+  "nombre": "Hogar",
+  "descripcion": "Protege tu casa o departamento, sea propio o alquilado, y lo que hay adentro:",
+  "lista": [
+   "Incendio, rayo y explosión.",
+   "Robo de contenido.",
+   "Daños por agua y cristales.",
+   "Responsabilidad civil por daños a terceros.",
+   "Electrodomésticos y objetos de valor, como coberturas adicionales."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "equi",
+  "grupo": "personas",
+  "orden": 5,
+  "estado": "publish",
+  "icono": "📷",
+  "nombre": "Equipos electrónicos",
+  "descripcion": "Cobertura para tus equipos electrónicos, en casa o en movimiento. Sirve para uso personal y también para trabajo:",
+  "lista": [
+   "Cámaras fotográficas y de video, drones y equipos de audio.",
+   "Notebooks, computadoras, tablets y celulares.",
+   "Robo o hurto, según el plan.",
+   "Daños accidentales, como golpes, caídas o líquidos, según la compañía.",
+   "Las condiciones y exclusiones varían según la compañía: te las explicamos antes de contratar."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "acc",
+  "grupo": "personas",
+  "orden": 6,
+  "estado": "publish",
+  "icono": "✋",
+  "nombre": "Accidentes personales",
+  "descripcion": "Una compensación económica si sufrís un accidente:",
+  "lista": [
+   "Muerte accidental.",
+   "Invalidez total o parcial permanente.",
+   "Gastos médicos y farmacéuticos, según el plan."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "ret",
+  "grupo": "personas",
+  "orden": 7,
+  "estado": "publish",
+  "icono": "⏳",
+  "nombre": "Retiro",
+  "descripcion": "Un plan de ahorro a largo plazo para complementar tus ingresos cuando dejes de trabajar:",
+  "lista": [
+   "Aportes periódicos o únicos.",
+   "Capital o renta al momento del retiro.",
+   "Cobertura por fallecimiento, según el plan."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "via",
+  "grupo": "personas",
+  "orden": 8,
+  "estado": "publish",
+  "icono": "✈️",
+  "nombre": "Viajeros",
+  "descripcion": "Asistencia para viajar con tranquilidad por Argentina o el exterior:",
+  "lista": [
+   "Asistencia médica y gastos de internación.",
+   "Equipaje y demoras.",
+   "Cancelación o interrupción del viaje, según el plan."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "com",
+  "grupo": "seguros-empresa",
+  "orden": 1,
+  "estado": "publish",
+  "icono": "🏪",
+  "nombre": "Integral de comercio",
+  "descripcion": "Una sola póliza para proteger tu local, oficina o negocio:",
+  "lista": [
+   "Incendio, rayo y explosión.",
+   "Robo y daños al contenido.",
+   "Cristales, daños eléctricos y por agua.",
+   "Responsabilidad civil comercial.",
+   "Lucro cesante, como cobertura adicional."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "inc",
+  "grupo": "seguros-empresa",
+  "orden": 2,
+  "estado": "publish",
+  "icono": "🔥",
+  "nombre": "Incendio",
+  "descripcion": "Protege el edificio y su contenido ante un incendio:",
+  "lista": [
+   "Incendio, rayo y explosión.",
+   "Daños al edificio, maquinaria y mercadería.",
+   "Coberturas adicionales según la actividad."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "rc",
+  "grupo": "seguros-empresa",
+  "orden": 3,
+  "estado": "publish",
+  "icono": "⚖️",
+  "nombre": "Responsabilidad civil",
+  "descripcion": "Cubre lo que tu empresa deba pagar por daños causados a terceros en su actividad:",
+  "lista": [
+   "Daños a personas y bienes de terceros.",
+   "Gastos de defensa.",
+   "Distintas modalidades: comercial, profesional, producto, entre otras."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "cau",
+  "grupo": "seguros-empresa",
+  "orden": 4,
+  "estado": "publish",
+  "icono": "💵",
+  "nombre": "Caución",
+  "descripcion": "Una garantía que respalda el cumplimiento de una obligación, en reemplazo de un depósito en efectivo:",
+  "lista": [
+   "Alquileres.",
+   "Contratos y obras.",
+   "Aduana y obligaciones frente a organismos."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "flota",
+  "grupo": "seguros-empresa",
+  "orden": 5,
+  "estado": "publish",
+  "icono": "🚚",
+  "nombre": "Flota y automotor comercial",
+  "descripcion": "Cobertura para los vehículos de tu empresa, uno o toda la flota:",
+  "lista": [
+   "Responsabilidad civil obligatoria.",
+   "Robo, incendio y daños, según el plan.",
+   "Gestión unificada de vencimientos y renovaciones."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "transp",
+  "grupo": "seguros-empresa",
+  "orden": 6,
+  "estado": "publish",
+  "icono": "📦",
+  "nombre": "Transporte de mercaderías",
+  "descripcion": "Protege la carga durante su traslado:",
+  "lista": [
+   "Daños y pérdida de mercadería.",
+   "Robo y siniestros del medio de transporte.",
+   "Transporte nacional e internacional, según la póliza."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "art",
+  "grupo": "seguros-empresa",
+  "orden": 7,
+  "estado": "publish",
+  "icono": "🦺",
+  "nombre": "ART",
+  "descripcion": "El seguro obligatorio por accidentes de trabajo y enfermedades profesionales de tus empleados:",
+  "lista": [
+   "Atención médica y prestaciones.",
+   "Indemnizaciones por incapacidad.",
+   "Prevención de riesgos laborales."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "vida",
+  "grupo": "seguros-empresa",
+  "orden": 8,
+  "estado": "publish",
+  "icono": "🤝",
+  "nombre": "Vida colectivo",
+  "descripcion": "Protección económica para las familias de tus empleados, obligatoria para los empleadores:",
+  "lista": [
+   "Cobertura por fallecimiento.",
+   "Una sola póliza para toda la nómina.",
+   "Coberturas adicionales, según la compañía."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "syh",
+  "grupo": "servicios-empresa",
+  "orden": 1,
+  "estado": "publish",
+  "icono": "🦺",
+  "nombre": "Seguridad e higiene",
+  "descripcion": "Te ayudamos a cumplir con la normativa de higiene y seguridad en el trabajo (Ley 19.587):",
+  "lista": [
+   "Relevamiento de riesgos en el establecimiento.",
+   "Planes de capacitación para el personal.",
+   "Documentación y registros para ART y controles.",
+   "Plan de mejora y seguimiento."
+  ],
+  "nota": "Servicio coordinado con profesionales habilitados."
+ },
+ {
+  "clave": "artc",
+  "grupo": "servicios-empresa",
+  "orden": 2,
+  "estado": "publish",
+  "icono": "📋",
+  "nombre": "ART y certificados",
+  "descripcion": "Te asesoramos para que tu empresa tenga la cobertura laboral en regla:",
+  "lista": [
+   "Comparación de ART y condiciones.",
+   "Certificados de cobertura para clientes, obras y terceros.",
+   "Altas, bajas y renovaciones."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "aud",
+  "grupo": "servicios-empresa",
+  "orden": 3,
+  "estado": "publish",
+  "icono": "🔎",
+  "nombre": "Auditoría de pólizas",
+  "descripcion": "Revisamos los seguros que ya tenés para que no pagues de más ni tengas huecos de cobertura:",
+  "lista": [
+   "Sumas aseguradas y coberturas.",
+   "Vencimientos y renovaciones.",
+   "Comparación de precios entre compañías."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "sin",
+  "grupo": "servicios-empresa",
+  "orden": 4,
+  "estado": "publish",
+  "icono": "🛠️",
+  "nombre": "Gestión de siniestros",
+  "descripcion": "Te acompañamos desde la denuncia hasta el cobro:",
+  "lista": [
+   "Armado de la denuncia y documentación.",
+   "Seguimiento con la compañía.",
+   "Atención de emergencias las 24 hs."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "prog",
+  "grupo": "servicios-empresa",
+  "orden": 5,
+  "estado": "publish",
+  "icono": "🧩",
+  "nombre": "Programa integral a medida",
+  "descripcion": "Armamos el esquema completo de seguros de tu empresa:",
+  "lista": [
+   "Análisis de riesgos de tu actividad.",
+   "Cotización en varias compañías.",
+   "Un único asesor para todas las pólizas."
+  ],
+  "nota": ""
+ },
+ {
+  "clave": "fal",
+  "grupo": "fal-info",
+  "orden": 1,
+  "estado": "publish",
+  "icono": "🏛️",
+  "nombre": "Fondo de Asistencia Laboral (FAL)",
+  "descripcion": "Es un fondo a nombre de la empresa, creado por la Ley 27.802, para ayudar a pagar indemnizaciones laborales. Es obligatorio y cada empresa tiene que elegir quién lo administra.",
+  "lista": [
+   "Entra en vigencia el 1 de diciembre de 2026.",
+   "Aporte: 1% de las remuneraciones para el resto del sector privado y 2,5% para MiPyMEs y entidades sin fines de lucro. Sale de las contribuciones patronales, por lo que no es un costo adicional (salvo trabajadores del RIFL).",
+   "Hacen falta doce meses de aportes antes de poder usar el fondo.",
+   "La indemnización sigue a cargo del empleador: el FAL ayuda a financiarla.",
+   "Lo administra una entidad habilitada por la CNV que elige tu empresa. Si no elige, la CNV asigna una de oficio.",
+   "Hay regímenes específicos que quedan afuera, como el de la construcción (UOCRA)."
+  ],
+  "nota": "Qué hacemos nosotros: te ayudamos a comparar opciones, a hacer el alta y a validar el ID FAL en ARCA. Consultá también con tu contador o abogado laboral."
+ },
+ {
+  "clave": "alta",
+  "grupo": "fal-info",
+  "orden": 2,
+  "estado": "publish",
+  "icono": "📝",
+  "nombre": "Cómo dar de alta tu FAL",
+  "descripcion": "Estos son los pasos para que tu empresa quede en regla con ARCA:",
+  "lista": [
+   "Paso 1: abrí la cuenta individual en la entidad habilitada que elijas, con constancia de ARCA, estatuto, acta de cargos y poder (si corresponde).",
+   "Paso 2: declará el encuadre en ARCA. Simplificación Registral, Datos del Empleador, «Sector Privado».",
+   "Paso 3: validá el ID FAL en ARCA. Simplificación Registral, Fondo de Asistencia Laboral, Validación de ID FAL.",
+   "Paso 4: liquidá y pagá con el F.931 mensual y el VEP (código de pago 266-019-019)."
+  ],
+  "nota": "El régimen se aplica desde las declaraciones juradas del período devengado diciembre de 2026. Los pasos 2 y 3 deben estar hechos antes de presentar ese F.931 y se requiere Clave Fiscal nivel 3. Si no se informa el ID FAL, los aportes quedan retenidos y ARCA avisa a la CNV para que asigne una cuenta de oficio. Consultá con tu contador."
+ }
+]
