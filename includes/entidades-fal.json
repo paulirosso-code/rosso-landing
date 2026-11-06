@@ -1,0 +1,72 @@
+[
+ {
+  "clave": "balanz",
+  "grupo": "entidades-fal",
+  "orden": 1,
+  "estado": "publish",
+  "icono": "📈",
+  "nombre": "Balanz",
+  "descripcion": "Gestora independiente",
+  "lista": [
+   "3 fondos según cuándo uses el dinero, más uno a medida.",
+   "Cartera mayormente en deuda soberana."
+  ],
+  "nota": "Ideal si priorizás una cartera conservadora."
+ },
+ {
+  "clave": "st",
+  "grupo": "entidades-fal",
+  "orden": 2,
+  "estado": "publish",
+  "icono": "🏦",
+  "nombre": "GST",
+  "descripcion": "Grupo ST · administra MegaQM",
+  "lista": [
+   "Un fondo de corto plazo y otro ajustado por CER.",
+   "Descuentos en seguros, aval SGR y leasing del grupo."
+  ],
+  "nota": "Ideal si usás servicios financieros del grupo."
+ },
+ {
+  "clave": "pellegrini",
+  "grupo": "entidades-fal",
+  "orden": 3,
+  "estado": "publish",
+  "icono": "🏛️",
+  "nombre": "Pellegrini",
+  "descripcion": "Banco Nación",
+  "lista": [
+   "FAL Ahorro, FAL Crecimiento y uno exclusivo.",
+   "Reintegro de la comisión hasta el 31/12/2027, adhiriendo antes del 31/12/2026. Se acredita en cuenta corriente del Banco Nación."
+  ],
+  "nota": "Ideal si operás con el Banco Nación."
+ },
+ {
+  "clave": "allaria",
+  "grupo": "entidades-fal",
+  "orden": 4,
+  "estado": "publish",
+  "icono": "📊",
+  "nombre": "Allaria",
+  "descripcion": "Allaria Fondos",
+  "lista": [
+   "Gestión activa a cargo de su comité de inversiones.",
+   "Cartera de activos locales de alta calificación."
+  ],
+  "nota": "Ideal si buscás gestión activa e independiente."
+ },
+ {
+  "clave": "sancor",
+  "grupo": "entidades-fal",
+  "orden": 5,
+  "estado": "publish",
+  "icono": "☀️",
+  "nombre": "Sancor",
+  "descripcion": "Con Banco del Sol",
+  "lista": [
+   "Alta 100% digital en Banco del Sol, con firma electrónica.",
+   "El respaldo de un grupo con más de 80 años."
+  ],
+  "nota": "Ideal si sos pyme y ya trabajás con Sancor."
+ }
+]

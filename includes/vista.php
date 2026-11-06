@@ -300,67 +300,268 @@ function rosso_landing_cuenta_fal() {
 	return ob_get_clean();
 }
 
-/** Página propia del FAL. "Qué es" y "Cómo dar el alta" se editan desde el menú Productos. */
+/**
+ * Página propia del FAL, con la estructura del material "FAL Rosso Empresas" (noviembre de 2026).
+ * Las entidades se editan desde el menú Productos; el resto de los textos, acá.
+ */
 function rosso_landing_pagina_fal() {
 	$info      = rosso_landing_productos( 'fal-info' );
-	$entidades = rosso_landing_tarjetas( 'entidades-fal', true );
+	$entidades = rosso_landing_productos( 'entidades-fal' );
+	$propuesta = rosso_landing_url_whatsapp( 'Hola, quiero una propuesta para el Fondo de Asistencia Laboral (FAL) de mi empresa' );
 	ob_start();
 	?>
-	<section class="rl-section rl-emp" id="fal">
-		<div class="rl-wrap">
-			<h1>Fondo de Asistencia Laboral (FAL)</h1>
-			<p>El FAL es obligatorio para los empleadores privados. Te ayudamos a elegir quién lo administra y a hacer el alta en ARCA.</p>
-
-			<div class="rl-fal">
-				<div>
-					<span class="rl-pill">Propuesta destacada</span>
-					<h2>Llegá a diciembre con todo resuelto</h2>
-					<p>Contanos sobre tu empresa y te ayudamos a comparar opciones.</p>
-					<a class="rl-btn rl-btn-blue" href="<?php echo esc_url( rosso_landing_url_whatsapp( 'Hola, quiero una propuesta para el Fondo de Asistencia Laboral (FAL) de mi empresa' ) ); ?>" target="_blank" rel="noopener">Quiero mi propuesta FAL</a>
+	<div class="rl-falp" id="fal">
+		<section class="rl-section rl-emp rl-falp-portada">
+			<div class="rl-wrap">
+				<p class="rl-kicker">Empresas · Fondo de Asistencia Laboral</p>
+				<h1>Desde el<br><span class="rl-resalte">1° de diciembre</span><br>el FAL es obligatorio</h1>
+				<p class="rl-lead">Si tu empresa no elige quién lo administra, <strong>la CNV elige por vos.</strong></p>
+				<div class="rl-fal">
+					<div>
+						<span class="rl-pill">Te hacemos el trámite</span>
+						<h2>Llegá a diciembre con todo resuelto</h2>
+						<p>Elegimos juntos la entidad y coordinamos el alta. Vos solo validás en ARCA.</p>
+						<a class="rl-btn rl-btn-blue" href="<?php echo esc_url( $propuesta ); ?>" target="_blank" rel="noopener">Quiero mi propuesta FAL</a>
+					</div>
+					<?php echo rosso_landing_cuenta_fal(); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 				</div>
-				<?php echo rosso_landing_cuenta_fal(); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			</div>
+		</section>
 
-			<div class="rl-stats">
-				<div><b>1/12</b>Entra en vigencia en diciembre de 2026</div>
-				<div><b>1% · 2,5%</b>Resto del sector privado · MiPyMEs. Sale de las contribuciones patronales</div>
-				<div><b>12 meses</b>De aportes antes de poder usar el fondo</div>
-				<div class="rl-warn"><b>De oficio</b>Si tu empresa no elige, la CNV le asigna una entidad</div>
+		<section class="rl-section">
+			<div class="rl-wrap">
+				<p class="rl-kicker">Qué es el FAL</p>
+				<h2>Un fondo a nombre de tu empresa para ayudar a pagar indemnizaciones</h2>
+				<div class="rl-cifras">
+					<div class="rl-cifra-oscura"><b>1/12</b><p>Entra en vigencia. El primer aporte va en el F.931 de diciembre.</p></div>
+					<div>
+						<b>2,5%</b><p><strong>MiPyMEs</strong> con certificado vigente y <strong>entidades sin fines de lucro</strong>.</p>
+						<b class="rl-cifra-segunda">1%</b><p><strong>Grandes empresas</strong> del sector privado.</p>
+					</div>
+					<div><b>12 <small>meses</small></b><p>De aportes antes de poder usar el fondo.</p></div>
+					<div class="rl-cifra-azul"><b>De oficio</b><p>Si no elegís entidad, la <strong>CNV</strong> te asigna una.</p></div>
+				</div>
+				<p class="rl-ejemplo"><strong>No pagás más que hoy:</strong> el aporte al FAL se descuenta de las contribuciones patronales. Mirá el ejemplo más abajo.</p>
+				<p class="rl-fuente">La indemnización sigue a cargo del empleador. Ley 27.802, Decretos 408/2026 y 1228/2026, RG ARCA 5907 y 5915/2026.</p>
 			</div>
+		</section>
 
-			<div class="rl-fal-textos">
-				<?php foreach ( $info as $post ) : ?>
-					<?php $nota = get_post_meta( $post->ID, '_rosso_nota', true ); ?>
-					<article class="rl-dl rl-dl-emp">
-						<h2><?php echo esc_html( $post->post_title ); ?></h2>
-						<?php echo wpautop( wp_kses_post( $post->post_content ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
-						<?php if ( $nota ) : ?>
-							<p class="rl-extra"><?php echo esc_html( $nota ); ?></p>
-						<?php endif; ?>
-					</article>
-				<?php endforeach; ?>
+		<section class="rl-section rl-celeste">
+			<div class="rl-wrap">
+				<p class="rl-kicker">Un ejemplo con números</p>
+				<h2>Cuánto aportás y cuánto más pagás: nada</h2>
+				<div class="rl-cuentas">
+					<div class="rl-cuenta">
+						<div class="rl-cuenta-quien"><h3>MiPyME</h3><p>Con certificado vigente, o entidad sin fines de lucro</p></div>
+						<div class="rl-monto"><small>Sueldos brutos del mes</small><b>$1.000.000</b></div>
+						<span class="rl-por">× 2,5%</span>
+						<div class="rl-monto rl-monto-oscuro"><small>Aporte al FAL por mes</small><b>$25.000</b></div>
+						<span class="rl-por" aria-hidden="true">→</span>
+						<div class="rl-monto rl-monto-borde"><small>Aportado en 12 meses</small><b>$300.000</b></div>
+					</div>
+					<div class="rl-cuenta">
+						<div class="rl-cuenta-quien"><h3>Gran empresa</h3><p>Del sector privado</p></div>
+						<div class="rl-monto"><small>Sueldos brutos del mes</small><b>$1.000.000</b></div>
+						<span class="rl-por">× 1%</span>
+						<div class="rl-monto rl-monto-azul"><small>Aporte al FAL por mes</small><b>$10.000</b></div>
+						<span class="rl-por" aria-hidden="true">→</span>
+						<div class="rl-monto rl-monto-borde"><small>Aportado en 12 meses</small><b>$120.000</b></div>
+					</div>
+				</div>
+				<div class="rl-barras-hoy">
+					<p class="rl-barra-quien"><strong>Hoy</strong></p>
+					<p class="rl-barra"><span>Contribuciones patronales que ya pagás · todo va a la seguridad social</span></p>
+					<p class="rl-barra-quien"><strong>Desde diciembre</strong><small>ejemplo MiPyME</small></p>
+					<p class="rl-barra"><span>El mismo total · una parte a la seguridad social</span><span class="rl-barra-fal">$25.000 a tu FAL</span></p>
+				</div>
+				<div class="rl-definiciones">
+					<p><b>2,5%</b><span><strong>MiPyMEs con certificado vigente</strong> y <strong>entidades sin fines de lucro</strong>: cooperativas, asociaciones, mutuales, fundaciones e instituciones religiosas.</span></p>
+					<p><b>1%</b><span><strong>Grandes empresas del sector privado</strong>: las que no tienen certificado MiPyME vigente.</span></p>
+				</div>
+				<p class="rl-fuente">Ejemplo ilustrativo. A lo aportado se suma un rendimiento: lo explicamos a continuación. Excepción: por trabajadores del RIFL el aporte no se descuenta.</p>
 			</div>
+		</section>
 
-			<?php if ( $entidades ) : ?>
-				<h3 class="rl-sub">Opciones para administrar tu FAL</h3>
-				<?php echo $entidades; // phpcs:ignore WordPress.Security.EscapeOutput ?>
-				<p class="rl-note2">Información basada en las presentaciones de cada entidad (septiembre de 2026). No constituye asesoramiento legal, contable ni financiero. La elección no es definitiva: el fondo se puede trasladar a otra entidad.</p>
+		<section class="rl-section">
+			<div class="rl-wrap">
+				<p class="rl-kicker">Además, el fondo se invierte</p>
+				<h2>Tus aportes no quedan quietos: suman un rendimiento</h2>
+				<div class="rl-rinde">
+					<ol class="rl-rinde-pasos">
+						<li><span>1</span><p>Cada mes, tu aporte entra a la cuenta de tu empresa en el fondo que elegiste.</p></li>
+						<li><span>2</span><p>La entidad lo invierte, por ejemplo en bonos o en instrumentos que ajustan por inflación.</p></li>
+						<li><span>3</span><p>Así, a lo que aportaste se le suma un <strong>rendimiento</strong>. Cuánto, depende de la entidad y del fondo que elijas.</p></li>
+					</ol>
+					<figure class="rl-grafico">
+						<span class="rl-pill">Ejemplo ilustrativo</span>
+						<div class="rl-columnas" aria-hidden="true">
+							<?php for ( $mes = 1; $mes <= 12; $mes++ ) : ?>
+								<div>
+									<i class="rl-col-rinde" style="height:<?php echo esc_attr( round( 0.065 * $mes * ( $mes - 1 ), 1 ) ); ?>%"></i>
+									<i class="rl-col-aporte" style="height:<?php echo esc_attr( 7.2 * $mes ); ?>%"></i>
+									<small><?php echo (int) $mes; ?></small>
+								</div>
+							<?php endfor; ?>
+						</div>
+						<figcaption><span class="rl-ref-aporte"></span>Lo que aportaste <span class="rl-ref-rinde"></span>El rendimiento <span>Meses 1 a 12</span></figcaption>
+					</figure>
+				</div>
+				<p class="rl-ejemplo rl-ejemplo-relleno"><strong>Pensalo como un respaldo, no como una inversión para ganar plata.</strong> El rendimiento busca que tu fondo no pierda valor y crezca de a poco. No está garantizado y varía según la opción que elijas.</p>
+				<p class="rl-fuente">Gráfico ilustrativo: no representa un rendimiento real. Comisión de administración con tope legal de 1%.</p>
+			</div>
+		</section>
+
+		<section class="rl-section rl-emp">
+			<div class="rl-wrap">
+				<p class="rl-kicker">Qué pasa si no elegís</p>
+				<h2>Si no elegís, te toca la entidad que sigue en la lista</h2>
+				<ol class="rl-pasos4">
+					<li><span>1</span><h3>ARCA retiene</h3><p>Sin ID FAL validado, tus aportes quedan retenidos, sin ir a ninguna cuenta.</p></li>
+					<li><span>2</span><h3>Avisa a la CNV</h3><p>Al mes del vencimiento sin ID válido, ARCA informa tu CUIT a la CNV.</p></li>
+					<li><span>3</span><h3>La CNV asigna</h3><p>Por orden cronológico entre las entidades anotadas. No por lo que le conviene a tu empresa.</p></li>
+					<li><span>4</span><h3>Te abren la cuenta</h3><p>La entidad asignada la abre en 5 días hábiles, sin tu consentimiento.</p></li>
+				</ol>
+				<div class="rl-cajas3">
+					<div><h3>Demora</h3><p>Los aportes tardan en acreditarse en tu cuenta.</p></div>
+					<div><h3>Menos rendimiento</h3><p>Mientras están retenidos, no rinden.</p></div>
+					<div><h3>Posibles sanciones</h3><p>Además de una administradora que no elegiste.</p></div>
+				</div>
+				<p class="rl-fuente">RG CNV 1167/2026 (Título V, Cap. X) y RG ARCA 5907/2026. Después se puede pedir el traslado a otra entidad.</p>
+			</div>
+		</section>
+
+		<?php if ( $entidades ) : ?>
+			<section class="rl-section">
+				<div class="rl-wrap">
+					<p class="rl-kicker">Quién lo administra</p>
+					<h2><?php echo esc_html( rosso_landing_cantidad_opciones( count( $entidades ) ) ); ?> Vos elegís.</h2>
+					<div class="rl-entidades">
+						<?php foreach ( $entidades as $post ) : ?>
+							<?php echo rosso_landing_entidad( $post ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+						<?php endforeach; ?>
+					</div>
+					<p class="rl-fuente">Información de cada entidad al 06/11/2026. Rendimientos estimados, no garantizados. Tope legal de comisión: 1%. La elección no es definitiva: el fondo se puede trasladar.</p>
+				</div>
+			</section>
+		<?php endif; ?>
+
+		<section class="rl-section rl-celeste">
+			<div class="rl-wrap">
+				<p class="rl-kicker">Cómo lo hacemos</p>
+				<h2>Te hacemos el trámite de punta a punta</h2>
+				<ol class="rl-pasos4">
+					<li><span>1</span><h3>Elegimos juntos</h3><p>En una llamada de 15 minutos vemos qué entidad encaja con tu empresa.</p></li>
+					<li><span>2</span><h3>Abrís la cuenta</h3><p>Armamos la carpeta y coordinamos el alta con la entidad.</p></li>
+					<li><span>3</span><h3>Validás en ARCA</h3><p>Vos o tu contador confirman el ID FAL, con nuestra guía paso a paso.</p></li>
+					<li><span>4</span><h3>Primer aporte</h3><p>En el F.931 de diciembre, que se paga en enero 2027 con VEP 266-019-019.</p></li>
+				</ol>
+				<div class="rl-avisos">
+					<p class="rl-aviso-oscuro"><span class="rl-pill">Plazo</span> <span>Los pasos 1 a 3, <strong>antes del F.931 de diciembre</strong>.</span></p>
+					<p class="rl-aviso-claro"><span aria-hidden="true">🔒</span> <strong>NUNCA te pedimos tu Clave Fiscal.</strong></p>
+				</div>
+			</div>
+		</section>
+
+		<section class="rl-section">
+			<div class="rl-wrap">
+				<p class="rl-kicker">Para empezar</p>
+				<h2>Qué necesitamos de tu empresa</h2>
+				<div class="rl-requisitos">
+					<div class="rl-checklist">
+						<h3>Documentación, en PDF</h3>
+						<ul>
+							<li>Constancia de inscripción en ARCA</li>
+							<li>Estatuto o contrato social</li>
+							<li>Acta de designación de autoridades</li>
+							<li>Poder del firmante, si corresponde</li>
+							<li>DNI de autoridades y apoderados</li>
+							<li>Certificado MiPyME, si lo tenés</li>
+							<li>Constancia de CBU de la empresa</li>
+							<li>Contacto de tu contador</li>
+						</ul>
+						<p class="rl-fuente">Cada entidad puede pedir algún dato adicional.</p>
+					</div>
+					<div class="rl-notas">
+						<div class="rl-nota-oscura"><h3><span aria-hidden="true">🔒</span> NUNCA te pedimos tu Clave Fiscal</h3><p>Los pasos en ARCA los hacés vos o tu contador, con Clave Fiscal nivel 3 del representante. Si alguien te la pide en nuestro nombre, no la des.</p></div>
+						<div><h3>Revisá tu certificado MiPyME</h3><p>Si no figura vigente en ARCA, aportás 1%, como gran empresa.</p></div>
+						<div><h3>Podés cambiar después</h3><p>El fondo se puede trasladar a otra entidad habilitada.</p></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="rl-section rl-emp">
+			<div class="rl-wrap">
+				<p class="rl-kicker">Y mientras el fondo crece</p>
+				<h2>El FAL no se puede usar el primer año. ¿Quién cubre a tu empresa mientras tanto?</h2>
+				<div class="rl-cajas4">
+					<div><h3>Vida LCT</h3><p>Indemnización por fallecimiento del trabajador.</p></div>
+					<div><h3>Vida y ART</h3><p>Toda la nómina cubierta y al día.</p></div>
+					<div><h3>Seguridad e higiene</h3><p>Con Servhiseg, menos accidentes y reclamos.</p></div>
+					<div><h3>Seguros de la empresa</h3><p>Integral, responsabilidad civil y flota.</p></div>
+				</div>
+				<div class="rl-cierre">
+					<a class="rl-btn rl-btn-blanco" href="<?php echo esc_url( rosso_landing_url_whatsapp( 'Hola, quiero el chequeo laboral sin costo para mi empresa' ) ); ?>" target="_blank" rel="noopener">Chequeo laboral sin costo</a>
+					<p><strong>WhatsApp</strong> <a href="<?php echo esc_url( rosso_landing_url_whatsapp() ); ?>" target="_blank" rel="noopener">+54 9 11 5055-0202</a><br><a href="mailto:info@rossoasesor.com.ar"><strong>info@rossoasesor.com.ar</strong></a></p>
+				</div>
+			</div>
+		</section>
+
+		<?php if ( isset( $info['fal'] ) ) : ?>
+			<section class="rl-section rl-emp rl-falp-form">
+				<div class="rl-wrap">
+					<h2>Pedí tu propuesta</h2>
+					<p>Completá los datos y te respondemos por WhatsApp.</p>
+					<?php
+					echo rosso_landing_formulario( // phpcs:ignore WordPress.Security.EscapeOutput
+						'-fal',
+						'¿Qué necesitás?',
+						array( 'Servicios para empresas' => array( 'fal' => $info['fal'] ) ),
+						'rl-btn-blue'
+					);
+					?>
+					<p class="rl-fuente">Material informativo: no constituye asesoramiento legal, contable ni de inversión. Rosso puede recibir una retribución de la entidad que elijas. Fechas vigentes al 06/11/2026.</p>
+				</div>
+			</section>
+		<?php endif; ?>
+	</div>
+	<?php
+	return ob_get_clean();
+}
+
+/** "Cinco opciones." según cuántas entidades estén publicadas. */
+function rosso_landing_cantidad_opciones( $cantidad ) {
+	$palabras = array( 1 => 'Una opción.', 2 => 'Dos opciones.', 3 => 'Tres opciones.', 4 => 'Cuatro opciones.', 5 => 'Cinco opciones.', 6 => 'Seis opciones.', 7 => 'Siete opciones.', 8 => 'Ocho opciones.' );
+	return $palabras[ $cantidad ] ?? $cantidad . ' opciones.';
+}
+
+/**
+ * Tarjeta de una entidad FAL. Del texto del producto, el primer párrafo va como subtítulo
+ * y el resto abajo. La "Nota destacada" es el recuadro "Ideal si...".
+ */
+function rosso_landing_entidad( $post ) {
+	$contenido = wpautop( wp_kses_post( $post->post_content ) );
+	$subtitulo = '';
+	if ( preg_match( '#^\s*<p>(.*?)</p>#s', $contenido, $partes ) ) {
+		$subtitulo = $partes[1];
+		$contenido = substr( $contenido, strlen( $partes[0] ) );
+	}
+	$nota = esc_html( get_post_meta( $post->ID, '_rosso_nota', true ) );
+	$nota = preg_replace( '/^Ideal si/u', '<strong>Ideal si</strong>', $nota );
+	ob_start();
+	?>
+	<article class="rl-entidad">
+		<header>
+			<h3><?php echo esc_html( $post->post_title ); ?></h3>
+			<?php if ( $subtitulo ) : ?>
+				<p><?php echo $subtitulo; // phpcs:ignore WordPress.Security.EscapeOutput -- ya pasó por wp_kses_post ?></p>
 			<?php endif; ?>
-
-			<?php if ( isset( $info['fal'] ) ) : ?>
-				<h3 class="rl-sub">Pedí tu propuesta</h3>
-				<p>Completá los datos y te respondemos por WhatsApp.</p>
-				<?php
-				echo rosso_landing_formulario( // phpcs:ignore WordPress.Security.EscapeOutput
-					'-fal',
-					'¿Qué necesitás?',
-					array( 'Servicios para empresas' => array( 'fal' => $info['fal'] ) ),
-					'rl-btn-blue'
-				);
-				?>
-			<?php endif; ?>
-		</div>
-	</section>
+		</header>
+		<div class="rl-entidad-texto"><?php echo $contenido; // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+		<?php if ( $nota ) : ?>
+			<p class="rl-ideal"><?php echo $nota; // phpcs:ignore WordPress.Security.EscapeOutput ?></p>
+		<?php endif; ?>
+	</article>
 	<?php
 	return ob_get_clean();
 }

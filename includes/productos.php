@@ -20,8 +20,8 @@ function rosso_landing_grupos() {
 		'personas'          => 'Personas y familias',
 		'seguros-empresa'   => 'Seguros para empresas',
 		'servicios-empresa' => 'Servicios para empresas',
-		'fal-info'          => 'Página FAL: textos',
-		'entidades-fal'     => 'Página FAL: comparación de entidades',
+		'fal-info'          => 'FAL: tarjeta y formulario de Empresas',
+		'entidades-fal'     => 'Página FAL: entidades que lo administran',
 	);
 }
 
@@ -94,32 +94,86 @@ function rosso_landing_cargar_contenido_inicial() {
 	}
 	$productos = json_decode( file_get_contents( ROSSO_LANDING_DIR . 'includes/contenido-inicial.json' ), true );
 	foreach ( $productos as $p ) {
-		$items     = array_map(
-			function ( $item ) {
-				return '<li>' . esc_html( $item ) . '</li>';
-			},
-			$p['lista']
+		wp_insert_post( wp_slash( rosso_landing_datos_producto( $p ) ) );
+	}
+	update_option( 'rosso_landing_contenido_cargado', 1 );
+}
+
+/** Convierte un producto de los archivos JSON en los datos de una entrada de WordPress. */
+function rosso_landing_datos_producto( $p ) {
+	$items = array_map(
+		function ( $item ) {
+			return '<li>' . esc_html( $item ) . '</li>';
+		},
+		$p['lista']
+	);
+	return array(
+		'post_type'    => ROSSO_CPT,
+		'post_status'  => $p['estado'],
+		'post_title'   => $p['nombre'],
+		'post_name'    => $p['clave'],
+		'post_content' => '<p>' . esc_html( $p['descripcion'] ) . "</p>\n<ul>\n" . implode( "\n", $items ) . "\n</ul>",
+		'menu_order'   => $p['orden'],
+		'meta_input'   => array(
+			'_rosso_grupo' => $p['grupo'],
+			'_rosso_icono' => $p['icono'],
+			'_rosso_nota'  => $p['nota'],
+		),
+	);
+}
+
+add_action( 'init', 'rosso_landing_actualizar_entidades_fal', 20 );
+
+/**
+ * Carga una sola vez las cinco entidades FAL del material de noviembre de 2026
+ * (Balanz, GST, Pellegrini, Allaria y Sancor). Pisa los borradores anteriores con la misma clave
+ * y pasa a borrador "Cómo dar de alta", que la página FAL ya no muestra.
+ * Para una carga futura, cambiar el número de versión.
+ */
+function rosso_landing_actualizar_entidades_fal() {
+	$version = 2;
+	if ( (int) get_option( 'rosso_landing_entidades_fal' ) >= $version ) {
+		return;
+	}
+	// Se marca antes de cargar para que dos visitas simultáneas no dupliquen entradas.
+	update_option( 'rosso_landing_entidades_fal', $version );
+
+	$entidades = json_decode( file_get_contents( ROSSO_LANDING_DIR . 'includes/entidades-fal.json' ), true );
+	foreach ( (array) $entidades as $p ) {
+		$datos  = rosso_landing_datos_producto( $p );
+		$actual = get_posts(
+			array(
+				'post_type'   => ROSSO_CPT,
+				'name'        => $p['clave'],
+				// "any" no encuentra borradores de este tipo de entrada: los estados van uno por uno.
+				'post_status' => array( 'publish', 'draft', 'pending', 'private', 'future' ),
+				'numberposts' => 1,
+			)
 		);
-		$contenido = '<p>' . esc_html( $p['descripcion'] ) . "</p>\n<ul>\n" . implode( "\n", $items ) . "\n</ul>";
-		wp_insert_post(
-			wp_slash(
-				array(
-					'post_type'    => ROSSO_CPT,
-					'post_status'  => $p['estado'],
-					'post_title'   => $p['nombre'],
-					'post_name'    => $p['clave'],
-					'post_content' => $contenido,
-					'menu_order'   => $p['orden'],
-					'meta_input'   => array(
-						'_rosso_grupo' => $p['grupo'],
-						'_rosso_icono' => $p['icono'],
-						'_rosso_nota'  => $p['nota'],
-					),
-				)
+		if ( $actual ) {
+			$datos['ID'] = $actual[0]->ID;
+			wp_update_post( wp_slash( $datos ) );
+		} else {
+			wp_insert_post( wp_slash( $datos ) );
+		}
+	}
+
+	$alta = get_posts(
+		array(
+			'post_type'   => ROSSO_CPT,
+			'name'        => 'alta',
+			'post_status' => 'publish',
+			'numberposts' => 1,
+		)
+	);
+	if ( $alta ) {
+		wp_update_post(
+			array(
+				'ID'          => $alta[0]->ID,
+				'post_status' => 'draft',
 			)
 		);
 	}
-	update_option( 'rosso_landing_contenido_cargado', 1 );
 }
 
 /** Devuelve los productos publicados de un grupo, en el orden indicado por el equipo. */
