@@ -8,7 +8,8 @@
 
 	/* ---------- Campos de cada formulario ----------
 	   Para cambiar un formulario, se edita esta lista.
-	   Cada campo es [etiqueta, tipo]. Tipos: "t" texto, "n" número, "d" fecha,
+	   Cada campo es [etiqueta, tipo] o [etiqueta, tipo, true] si es obligatorio.
+	   Tipos: "t" texto, "n" número, "doc" número de documento, "d" fecha,
 	   "x" texto largo, o una lista de opciones. La clave (auto, moto...) es la del
 	   producto. Un producto sin lista acá pide solo "Detalle de lo que necesitás". */
 	var NEGOCIO = ['Nombre del negocio o empresa', 't'];
@@ -17,10 +18,12 @@
 	var EMPLEADOS = ['Cantidad de empleados', 'n'];
 	var SUPERFICIE = ['Superficie (m²)', 'n'];
 	var CP = ['Localidad o código postal', 't'];
+	var DNI = ['DNI del titular (obligatorio)', 'doc', true];
+	var PATENTE = ['Patente (opcional; si es 0 km, dejala vacía)', 't'];
 
 	var CAMPOS = {
-		auto: [['Marca', 't'], ['Modelo', 't'], ['Versión', 't'], ['Año', 'n'], ['Patente (o 0 km)', 't'], ['Uso', ['Particular', 'Comercial o trabajo', 'Aplicaciones (Uber, Cabify, etc.)']], CP, ['¿Tiene GNC?', ['No', 'Sí']], ['Cobertura que buscás', ['Responsabilidad civil', 'Terceros completo', 'Todo riesgo', 'No sé, que me asesoren']], ['Seguro actual, si tenés (compañía y vencimiento)', 't']],
-		moto: [['Marca', 't'], ['Modelo', 't'], ['Año', 'n'], ['Cilindrada (cc)', 'n'], ['Patente (o 0 km)', 't'], CP, ['Uso', ['Particular', 'Reparto o trabajo']], ['Cobertura que buscás', ['Responsabilidad civil', 'Robo e incendio', 'Todo riesgo', 'No sé, que me asesoren']]],
+		auto: [DNI, ['Marca', 't'], ['Modelo', 't'], ['Versión', 't'], ['Año', 'n'], PATENTE, ['Uso', ['Particular', 'Comercial o trabajo', 'Aplicaciones (Uber, Cabify, etc.)']], CP, ['¿Tiene GNC?', ['No', 'Sí']], ['Cobertura que buscás', ['Responsabilidad civil', 'Terceros completo', 'Todo riesgo', 'No sé, que me asesoren']], ['Seguro actual, si tenés (compañía y vencimiento)', 't']],
+		moto: [DNI, ['Marca', 't'], ['Modelo', 't'], ['Año', 'n'], ['Cilindrada (cc)', 'n'], PATENTE, CP, ['Uso', ['Particular', 'Reparto o trabajo']], ['Cobertura que buscás', ['Responsabilidad civil', 'Robo e incendio', 'Todo riesgo', 'No sé, que me asesoren']]],
 		mov: [['Tipo', ['Bicicleta', 'Bicicleta eléctrica', 'Monopatín eléctrico', 'Otro']], ['Marca y modelo', 't'], ['Valor aproximado ($)', 'n'], LOCALIDAD],
 		hogar: [['Tipo de vivienda', ['Casa', 'Departamento', 'PH']], ['Sos', ['Propietario', 'Inquilino']], CP, SUPERFICIE, ['Valor aproximado del contenido ($)', 'n']],
 		equi: [['Tipo de equipo', ['Cámara fotográfica o de video', 'Notebook o computadora', 'Tablet o celular', 'Dron', 'Equipo de audio o sonido', 'Otro']], ['Marca y modelo', 't'], ['Valor aproximado ($)', 'n'], ['Año de compra', 'n'], ['Uso', ['Personal', 'Profesional o de trabajo']], ['Cobertura que buscás', ['Robo', 'Daño accidental', 'Robo y daño accidental', 'No sé, que me asesoren']], LOCALIDAD],
@@ -100,7 +103,15 @@
 				control.inputMode = 'numeric';
 				control.min = '0';
 			}
+			if (tipo === 'doc') {
+				// Solo números, entre 7 y 8 dígitos (se aceptan puntos al escribirlo).
+				control.inputMode = 'numeric';
+				control.pattern = '[0-9]{1,2}\\.?[0-9]{3}\\.?[0-9]{3}';
+				control.title = 'Escribí el DNI, sin espacios. Por ejemplo: 30123456';
+			}
 		}
+		// El navegador no deja enviar el formulario si falta un dato obligatorio.
+		control.required = campo[2] === true;
 		control.id = id;
 		caja.appendChild(control);
 		return caja;
