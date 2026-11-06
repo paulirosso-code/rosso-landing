@@ -390,24 +390,30 @@ function rosso_landing_pagina_fal() {
 					<ol class="rl-rinde-pasos">
 						<li><span>1</span><p>Cada mes, tu aporte entra a la cuenta de tu empresa en el fondo que elegiste.</p></li>
 						<li><span>2</span><p>La entidad lo invierte, por ejemplo en bonos o en instrumentos que ajustan por inflación.</p></li>
-						<li><span>3</span><p>Así, a lo que aportaste se le suma un <strong>rendimiento</strong>. Cuánto, depende de la entidad y del fondo que elijas.</p></li>
+						<li><span>3</span><p>A lo que aportaste se le suma un <strong>rendimiento</strong>, que depende de la entidad y del fondo que elijas.</p></li>
+						<li><span>4</span><p>Y el rendimiento también rinde: <strong>cuanto más tiempo pasa, más se nota.</strong></p></li>
 					</ol>
 					<figure class="rl-grafico">
 						<span class="rl-pill">Ejemplo ilustrativo</span>
 						<div class="rl-columnas" aria-hidden="true">
-							<?php for ( $mes = 1; $mes <= 12; $mes++ ) : ?>
+							<?php
+							// Alturas tomadas del gráfico del PDF, en unidades de un año de aportes.
+							$rendimientos = array( 0.1, 0.45, 1.13, 2.3, 3.94 );
+							foreach ( $rendimientos as $i => $rendimiento ) :
+								$anio = $i + 1;
+								?>
 								<div>
-									<i class="rl-col-rinde" style="height:<?php echo esc_attr( round( 0.065 * $mes * ( $mes - 1 ), 1 ) ); ?>%"></i>
-									<i class="rl-col-aporte" style="height:<?php echo esc_attr( 7.2 * $mes ); ?>%"></i>
-									<small><?php echo (int) $mes; ?></small>
+									<i class="rl-col-rinde" style="height:<?php echo esc_attr( round( $rendimiento / 9 * 100, 1 ) ); ?>%"></i>
+									<i class="rl-col-aporte" style="height:<?php echo esc_attr( round( $anio / 9 * 100, 1 ) ); ?>%"></i>
+									<small>Año <?php echo (int) $anio; ?></small>
 								</div>
-							<?php endfor; ?>
+							<?php endforeach; ?>
 						</div>
-						<figcaption><span class="rl-ref-aporte"></span>Lo que aportaste <span class="rl-ref-rinde"></span>El rendimiento <span>Meses 1 a 12</span></figcaption>
+						<figcaption><span class="rl-ref-aporte"></span>Lo que aportaste <span class="rl-ref-rinde"></span>El rendimiento</figcaption>
 					</figure>
 				</div>
-				<p class="rl-ejemplo rl-ejemplo-relleno"><strong>Pensalo como un respaldo, no como una inversión para ganar plata.</strong> El rendimiento busca que tu fondo no pierda valor y crezca de a poco. No está garantizado y varía según la opción que elijas.</p>
-				<p class="rl-fuente">Gráfico ilustrativo: no representa un rendimiento real. Comisión de administración con tope legal de 1%.</p>
+				<p class="rl-ejemplo rl-ejemplo-relleno"><strong>Es un respaldo para indemnizaciones, no una inversión para ganar plata.</strong> El rendimiento no está garantizado y varía según la opción que elijas.</p>
+				<p class="rl-fuente">Gráfico ilustrativo: aportes mensuales iguales durante 5 años. No representa un rendimiento garantizado ni incluye la comisión de administración (tope legal 1%).</p>
 			</div>
 		</section>
 
@@ -435,12 +441,13 @@ function rosso_landing_pagina_fal() {
 				<div class="rl-wrap">
 					<p class="rl-kicker">Quién lo administra</p>
 					<h2><?php echo esc_html( rosso_landing_cantidad_opciones( count( $entidades ) ) ); ?> Vos elegís.</h2>
+					<p>Todas están abiertas a cualquier empresa. Te ayudamos a compararlas según lo que buscás.</p>
 					<div class="rl-entidades">
 						<?php foreach ( $entidades as $post ) : ?>
 							<?php echo rosso_landing_entidad( $post ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 						<?php endforeach; ?>
 					</div>
-					<p class="rl-fuente">Información de cada entidad al 06/11/2026. Rendimientos estimados, no garantizados. Tope legal de comisión: 1%. La elección no es definitiva: el fondo se puede trasladar.</p>
+					<p class="rl-fuente">*Hasta el 31/12/2027, adhiriendo antes del 31/12/2026 (en cuenta corriente BNA). En orden alfabético. Información al 06/11/2026. Tope de comisión: 1%. El fondo se puede trasladar.</p>
 				</div>
 			</section>
 		<?php endif; ?>
@@ -457,7 +464,7 @@ function rosso_landing_pagina_fal() {
 				</ol>
 				<div class="rl-avisos">
 					<p class="rl-aviso-oscuro"><span class="rl-pill">Plazo</span> <span>Los pasos 1 a 3, <strong>antes del F.931 de diciembre</strong>.</span></p>
-					<p class="rl-aviso-claro"><span aria-hidden="true">🔒</span> <strong>NUNCA te pedimos tu Clave Fiscal.</strong></p>
+					<p class="rl-aviso-claro"><span aria-hidden="true">🔒</span> <strong>Nunca te pedimos tu Clave Fiscal.</strong></p>
 				</div>
 			</div>
 		</section>
@@ -482,7 +489,7 @@ function rosso_landing_pagina_fal() {
 						<p class="rl-fuente">Cada entidad puede pedir algún dato adicional.</p>
 					</div>
 					<div class="rl-notas">
-						<div class="rl-nota-oscura"><h3><span aria-hidden="true">🔒</span> NUNCA te pedimos tu Clave Fiscal</h3><p>Los pasos en ARCA los hacés vos o tu contador, con Clave Fiscal nivel 3 del representante. Si alguien te la pide en nuestro nombre, no la des.</p></div>
+						<div class="rl-nota-oscura"><h3><span aria-hidden="true">🔒</span> Nunca te pedimos tu Clave Fiscal</h3><p>Los pasos en ARCA los hacés vos o tu contador, con Clave Fiscal nivel 3 del representante. Si alguien te la pide en nuestro nombre, no la des.</p></div>
 						<div><h3>Revisá tu certificado MiPyME</h3><p>Si no figura vigente en ARCA, aportás 1%, como gran empresa.</p></div>
 						<div><h3>Podés cambiar después</h3><p>El fondo se puede trasladar a otra entidad habilitada.</p></div>
 					</div>
@@ -537,7 +544,7 @@ function rosso_landing_cantidad_opciones( $cantidad ) {
 
 /**
  * Tarjeta de una entidad FAL. Del texto del producto, el primer párrafo va como subtítulo
- * y el resto abajo. La "Nota destacada" es el recuadro "Ideal si...".
+ * y el resto abajo. La "Nota destacada" es el recuadro "Se destaca por".
  */
 function rosso_landing_entidad( $post ) {
 	$contenido = wpautop( wp_kses_post( $post->post_content ) );
@@ -546,8 +553,7 @@ function rosso_landing_entidad( $post ) {
 		$subtitulo = $partes[1];
 		$contenido = substr( $contenido, strlen( $partes[0] ) );
 	}
-	$nota = esc_html( get_post_meta( $post->ID, '_rosso_nota', true ) );
-	$nota = preg_replace( '/^Ideal si/u', '<strong>Ideal si</strong>', $nota );
+	$nota = get_post_meta( $post->ID, '_rosso_nota', true );
 	ob_start();
 	?>
 	<article class="rl-entidad">
@@ -559,7 +565,7 @@ function rosso_landing_entidad( $post ) {
 		</header>
 		<div class="rl-entidad-texto"><?php echo $contenido; // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
 		<?php if ( $nota ) : ?>
-			<p class="rl-ideal"><?php echo $nota; // phpcs:ignore WordPress.Security.EscapeOutput ?></p>
+			<p class="rl-ideal"><small>Se destaca por</small><strong><?php echo esc_html( $nota ); ?></strong></p>
 		<?php endif; ?>
 	</article>
 	<?php

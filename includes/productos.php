@@ -125,13 +125,13 @@ function rosso_landing_datos_producto( $p ) {
 add_action( 'init', 'rosso_landing_actualizar_entidades_fal', 20 );
 
 /**
- * Carga una sola vez las cinco entidades FAL del material de noviembre de 2026
- * (Balanz, GST, Pellegrini, Allaria y Sancor). Pisa los borradores anteriores con la misma clave
+ * Carga una sola vez las seis entidades FAL del material final de noviembre de 2026
+ * (Allaria, Balanz, BIND, GST, Pellegrini y Sancor). Pisa las entradas anteriores con la misma clave
  * y pasa a borrador "Cómo dar de alta", que la página FAL ya no muestra.
- * Para una carga futura, cambiar el número de versión.
+ * Para una carga futura, cambiar el número de versión. La 2 era el material anterior, con cinco entidades.
  */
 function rosso_landing_actualizar_entidades_fal() {
-	$version = 2;
+	$version = 3;
 	if ( (int) get_option( 'rosso_landing_entidades_fal' ) >= $version ) {
 		return;
 	}
