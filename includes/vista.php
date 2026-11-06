@@ -24,6 +24,7 @@ function rosso_landing_shortcode( $atributos ) {
 		'cotizar'    => 'rosso_landing_cotizar',
 		'empresas'   => 'rosso_landing_empresas',
 		'fal'        => 'rosso_landing_pagina_fal',
+		'preguntas'  => 'rosso_landing_seccion_preguntas',
 		'pie'        => 'rosso_landing_pie',
 	);
 
@@ -358,6 +359,38 @@ function rosso_landing_pagina_fal() {
 				);
 				?>
 			<?php endif; ?>
+		</div>
+	</section>
+	<?php
+	return ob_get_clean();
+}
+
+/** Preguntas frecuentes (se editan desde el menú "Preguntas frecuentes") y recuadro de siniestros. */
+function rosso_landing_seccion_preguntas() {
+	$preguntas = rosso_landing_preguntas();
+	ob_start();
+	?>
+	<section class="rl-section rl-faq" id="siniestros">
+		<div class="rl-wrap rl-two">
+			<?php if ( $preguntas ) : ?>
+				<div>
+					<h2>Preguntas frecuentes</h2>
+					<?php foreach ( $preguntas as $pregunta ) : ?>
+						<details>
+							<summary><?php echo esc_html( $pregunta->post_title ); ?></summary>
+							<div class="rl-respuesta"><?php echo wpautop( wp_kses_post( $pregunta->post_content ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+						</details>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
+			<div class="rl-sin">
+				<h2>¿Tuviste un siniestro?</h2>
+				<p>Podés enviar un mail a las siguientes casillas:</p>
+				<p>Automotores: <a href="mailto:mscatolon@rossoasesor.com.ar">mscatolon@rossoasesor.com.ar</a></p>
+				<p>Riesgos varios: <a href="mailto:abadi@rossoasesor.com.ar">abadi@rossoasesor.com.ar</a></p>
+				<p>Emergencias 24 hs: <a href="mailto:mjrecalde@rossoasesor.com.ar">mjrecalde@rossoasesor.com.ar</a> o llamar al <a href="tel:+<?php echo esc_attr( ROSSO_WHATSAPP_URGENCIAS ); ?>">+54 9 11 3681-3003</a></p>
+				<a class="rl-btn rl-btn-main" href="<?php echo esc_url( rosso_landing_url_whatsapp( 'Hola! Quiero denunciar un siniestro. ¿Qué datos se necesitan?' ) ); ?>" target="_blank" rel="noopener">Denunciar</a>
+			</div>
 		</div>
 	</section>
 	<?php

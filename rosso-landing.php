@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Rosso Landing
  * Description: Tarjetas de productos, ventanas de detalle y formularios de cotización por WhatsApp de la landing de Rosso Asesor. No guarda datos de cotización.
- * Version: 0.5.0
+ * Version: 0.6.0
  * Update URI: https://github.com/paulirosso-code/rosso-landing
  * Text Domain: rosso-landing
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ROSSO_LANDING_VERSION', '0.5.0' );
+define( 'ROSSO_LANDING_VERSION', '0.6.0' );
 define( 'ROSSO_LANDING_DIR', plugin_dir_path( __FILE__ ) );
 define( 'ROSSO_LANDING_URL', plugin_dir_url( __FILE__ ) );
 
@@ -28,6 +28,7 @@ define( 'ROSSO_PAGINA_LANDING', 'inicio' );
 define( 'ROSSO_PAGINA_FAL', 'fal' );
 
 require_once ROSSO_LANDING_DIR . 'includes/productos.php';
+require_once ROSSO_LANDING_DIR . 'includes/preguntas.php';
 require_once ROSSO_LANDING_DIR . 'includes/vista.php';
 require_once ROSSO_LANDING_DIR . 'includes/actualizaciones.php';
 

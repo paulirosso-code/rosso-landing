@@ -1,0 +1,32 @@
+[
+ {
+  "orden": 1,
+  "estado": "publish",
+  "pregunta": "¿Cuál es la diferencia entre prima, premio y suma asegurada?",
+  "respuesta": "La prima es el valor técnico del seguro con el riesgo incluido.\n\nEl premio es la prima más todos los impuestos y sellados. Es la suma de dinero que debés pagar para obtener la cobertura de un seguro.\n\nLa suma asegurada es el límite máximo que va a pagar la aseguradora en caso de ocurrir el siniestro. Es la base para calcular la prima."
+ },
+ {
+  "orden": 2,
+  "estado": "publish",
+  "pregunta": "¿Qué es un seguro con franquicia?",
+  "respuesta": "La franquicia es el total de dinero que el asegurado debe asumir por cuenta propia para cubrir el costo de los daños generados por un siniestro, según el contrato pactado previamente con la compañía aseguradora.\n\nEl importe a cargo del asegurado puede ser un porcentaje sobre el monto asegurado, sobre el valor del 0 km o puede ser un valor fijo. Generalmente, dicho importe se descuenta del reembolso que hace la aseguradora."
+ },
+ {
+  "orden": 3,
+  "estado": "publish",
+  "pregunta": "¿Qué debo hacer en caso de ocurrir un siniestro automotor?",
+  "respuesta": "Ante todo, mantener la calma. En caso de haber algún tercero involucrado, pedir los datos (patente, foto de la cédula, foto de la póliza, DNI del tercero) y comunicarse con Rosso de lunes a viernes de 09:00 a 18:00.\n\nEn caso de ser una urgencia, por favor comunicate al <a href=\"tel:+5491136813003\">+54 9 11 3681-3003</a>."
+ },
+ {
+  "orden": 4,
+  "estado": "publish",
+  "pregunta": "¿Cómo denuncio un siniestro?",
+  "respuesta": "Comunicate con nosotros al <a href=\"tel:+541148991063\">4899-1063</a> o mandanos un mail a cualquiera de las siguientes direcciones:\n<ul>\n<li><a href=\"mailto:mjrecalde@rossoasesor.com.ar\">mjrecalde@rossoasesor.com.ar</a></li>\n<li><a href=\"mailto:mscatolon@rossoasesor.com.ar\">mscatolon@rossoasesor.com.ar</a></li>\n<li><a href=\"mailto:abadi@rossoasesor.com.ar\">abadi@rossoasesor.com.ar</a></li>\n</ul>"
+ },
+ {
+  "orden": 5,
+  "estado": "draft",
+  "pregunta": "¿Cuáles son los medios de pago habilitados?",
+  "respuesta": "Hacé click <a href=\"#\"><strong>aquí</strong></a> para ver todos los medios de pago según la compañía de seguros. En todos los casos, te pedimos que nos envíes el comprobante de pago a <a href=\"mailto:iniguez@rossoasesor.com.ar\">iniguez@rossoasesor.com.ar</a>.\n\nBORRADOR: falta reemplazar el enlace \"aquí\" por la página de medios de pago. Borrá esta línea antes de publicar."
+ }
+]
